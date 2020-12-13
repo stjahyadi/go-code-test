@@ -8,7 +8,7 @@ Open cli and setup environment variable to store TOKEN_SECRET
 set TOKEN_SECRET=supersecretphrase
 ```
 
-In the same cli, go to <workspace>/GoMaps2020/jwt-client/ and run jwt-client to get JWT token from console
+In the same cli, go to [workspace]/jwt-client/ and run jwt-client to get JWT token from console
 
 ```sh
 go run jwt_client.go
@@ -22,7 +22,7 @@ Open cli and setup environment variable to store TOKEN_SECRET
 set TOKEN_SECRET=supersecretphrase
 ```
 
-In the same cli, go to <workspace>/GoMaps2020/ and run main.go to start up the server
+In the same cli, go to [workspace] and run main.go to start up the server
 ```sh
 go run main.go
 ```
@@ -36,7 +36,7 @@ curl -X GET "http://localhost:8081/api/locations" -H  "accept: application/json"
 
 ### Swagger API documentation
 
-Open cli and go to <workspace>/GoMaps2020/ and run go-swagger command to start up swagger docs
+Open cli and go to [workspace] and run go-swagger command to start up swagger docs
 
 ```sh
 go-swagger serve -F=swagger swagger.yaml -p=8082
