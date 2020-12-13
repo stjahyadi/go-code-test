@@ -1,4 +1,4 @@
-# GoMaps2020
+# Go Code Test
 
 ### Run jwt-client
 
