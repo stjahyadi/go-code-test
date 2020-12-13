@@ -1,0 +1,168 @@
+swagger: "2.0"
+basePath: /api/
+info:  
+  description: |-
+    ## Welcome
+    
+    This is an API documentation.
+    
+  title: Golang API
+  version: "1.0"
+host: localhost:8081
+schemes:
+  - http
+produces:
+- application/json
+consumes:
+- application/json
+securityDefinitions:
+  api_key:
+    in: header
+    name: Token
+    type: apiKey
+definitions:
+  location-struct:
+    title: Location
+    allOf:
+      - $ref: '#/definitions/location-struct'
+      - type: object
+        properties:
+          Id:
+            type: string
+            x-go-custom-tag: db:"Id"
+          City:
+            type: string
+            x-go-custom-tag: db:"City"
+          Address:
+            type: string
+            x-go-custom-tag: db:"Address"
+          PostCode:
+            type: string
+            x-go-custom-tag: db:"PostCode"
+        required:
+          - id
+  user-partial:
+    title: User
+    allOf:
+      - type: object
+        properties:
+          Username:
+            type: string
+            x-go-custom-tag: db:"Username"
+          PreferredLocation:
+            type: string
+            x-go-custom-tag: db:"PreferredLocation"
+        required:
+          - Username
+paths:
+  /locations:
+    get:
+      parameters: []
+      operationId: get_locations
+      summary: Get list of all locations
+      security:
+        - api_key: []
+      tags:
+        - Locations
+      responses:
+        "200":
+          description: Authenticated
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /location:
+    post:
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: '#/definitions/location-struct'
+            example:
+              name: New Location Name
+              completed: false
+      operationId: create_location
+      summary: Create location
+      security:
+        - api_key: []
+      tags:
+        - Locations
+      responses:
+        "200":
+          description: Authenticated
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /location/{id}:
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      operationId: get_location
+      summary: Get location by Id
+      security:
+        - api_key: []
+      tags:
+        - Locations
+      responses:
+        "200":
+          description: Authenticated
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /users:
+    get:
+      parameters: []
+      operationId: get_users
+      summary: Get list of all users
+      security:
+        - api_key: []
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Authenticated
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /user/update:
+    put:
+      operationId: put_user
+      summary: Update User
+      security:
+        - api_key: []
+      tags:
+        - Users
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: '#/definitions/user-partial'
+            example:
+              name: User new preferred location
+              completed: false
+  /health:
+    get:
+      parameters: []
+      operationId: health_check
+      summary: Healthy check API
+      tags:
+        - Health
+      responses:
+        "200":
+          description: Authenticated
+  /metrics:
+    get:
+      parameters: []
+      operationId: get_metric
+      summary: Metrics API
+      tags:
+        - Metrics
+      responses:
+        "200":
+          description: Authenticated
