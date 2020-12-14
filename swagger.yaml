@@ -28,7 +28,7 @@ definitions:
       - type: object
         properties:
           Id:
-            type: string
+            type: integer
             x-go-custom-tag: db:"Id"
           City:
             type: string

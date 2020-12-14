@@ -44,6 +44,26 @@ go-swagger serve -F=swagger swagger.yaml -p=8082
 
 Open browser and open http://localhost:8082/docs
 
-### Other notes
+### Unit Testing
 
-None.
+Open cli and go to [workspace] and run go command
+
+```sh
+go test
+```
+
+### Build and Run server API as docker 
+
+Open cli and go to [workspace] and docker command as below
+
+```sh
+docker build -t gomaps-app .
+```
+
+Once the image is successfully built, run docker 
+
+```sh
+docker run -e TOKEN_SECRET=supersecret --publish 8080:8081 --detach --name gomaps-app gomaps-app:latest
+```
+
+Access it via <host>:8080

@@ -18,10 +18,10 @@ func TestGetUsers(t *testing.T){
 
 func prepareData(){
 	Locations = []Location{
-        Location{Id: "1", City: "Singapore", Address: "9 Battery Road", PostCode: "049910"},
+        Location{Id: 1, City: "Singapore", Address: "9 Battery Road", PostCode: "049910"},
     }
 	Users = []User{
-        User{Id: "1", Username: "Andy", PreferredLocation: "9 Battery Road" },
+        User{Id: 1, Username: "Andy", PreferredLocation: "9 Battery Road" },
     }
 }
 
