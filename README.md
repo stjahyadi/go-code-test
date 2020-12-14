@@ -66,4 +66,4 @@ Once the image is successfully built, run docker
 docker run -e TOKEN_SECRET=supersecret --publish 8080:8081 --detach --name gomaps-app gomaps-app:latest
 ```
 
-Access it via <host>:8080
+Access it via [ip_address]:8080
