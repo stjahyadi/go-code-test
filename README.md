@@ -2,13 +2,13 @@
 
 ### Run jwt-client
 
-Open cli and setup environment variable to store TOKEN_SECRET
+Open new cli and setup environment variable to store TOKEN_SECRET
 
 ```sh
 set TOKEN_SECRET=supersecretphrase
 ```
 
-In the same cli, go to [workspace]/jwt-client/ and run jwt-client to get JWT token from console
+In the same cli, go to [workspace]/go-code-test/jwt-client/ and run jwt-client to get JWT token from console
 
 ```sh
 go run jwt_client.go
@@ -16,13 +16,13 @@ go run jwt_client.go
 
 ### Run server API
 
-Open cli and setup environment variable to store TOKEN_SECRET
+Open new cli and setup environment variable to store TOKEN_SECRET
 
 ```sh
 set TOKEN_SECRET=supersecretphrase
 ```
 
-In the same cli, go to [workspace] and run main.go to start up the server
+In the same cli, go to [workspace]/go-code-test/ and run *go run* to start up the server
 ```sh
 go run main.go
 ```
@@ -36,7 +36,7 @@ curl -X GET "http://localhost:8081/api/locations" -H  "accept: application/json"
 
 ### Swagger API documentation
 
-Open cli and go to [workspace] and run go-swagger command to start up swagger docs
+Open cli and go to [workspace]/go-code-test/ and run *go-swagger* command to start up swagger docs
 
 ```sh
 go-swagger serve -F=swagger swagger.yaml -p=8082
@@ -46,15 +46,15 @@ Open browser and open http://localhost:8082/docs
 
 ### Unit Testing
 
-Open cli and go to [workspace] and run go command
+Open cli and go to [workspace]/go-code-test/ and run *go test* command
 
 ```sh
 go test
 ```
 
-### Build and Run server API as docker 
+### [Additional] Build and Run server API as docker 
 
-Open cli and go to [workspace] and docker command as below
+Open cli and go to [workspace]/go-code-test/ and execute docker command as below
 
 ```sh
 docker build -t gomaps-app .

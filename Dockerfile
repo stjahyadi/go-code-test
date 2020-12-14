@@ -10,5 +10,7 @@ RUN go get -u github.com/gorilla/mux && go get -u github.com/gorilla/handlers &&
 
 RUN go build -o main .
 
+EXPOSE 8081
+
 CMD ["/app/main"]
 #CMD ["sh", "-c", "tail -f /dev/null"]
